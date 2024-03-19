@@ -2,6 +2,7 @@ from adapter.kakao.resource.abstract import AbstractKaKaoResource
 from .dto.kakao_user_info_dto import KaKaoUserInfoDto
 
 from .kakao_user_info import KaKaoUserInfo
+from .kakao_user_logout import KaKaoUserLogOut
 
 
 class KaKaoUserResourceEntry(AbstractKaKaoResource):
@@ -25,3 +26,6 @@ class KaKaoUserResourceEntry(AbstractKaKaoResource):
             with_gender=with_gender
         )
         return KaKaoUserInfoDto(**user_info)
+
+    def logout(self, access_token):
+        return KaKaoUserLogOut.user_logout(access_token=access_token)
